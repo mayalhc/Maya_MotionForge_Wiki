@@ -24,7 +24,9 @@ Blender 애드온 MotionForge v0.5.0을 Maya 2027로 이식했습니다. 모든 
 
 ### 2-1. 모듈 등록 (한 번만)
 
-배포 파일을 항상 쓸 폴더에 풉니다 (예: `C:\Users\<사용자>\Documents\maya\modules\MotionForge`).
+zip 안에는 `Maya_MotionForge-<버전>` 폴더 하나가 들어 있습니다. 압축을 풀고 그 폴더를 항상 쓸 위치로 옮긴 뒤
+이름을 `MotionForge`로 바꿉니다 (예: `C:\Users\<사용자>\Documents\maya\modules\MotionForge`).
+`MotionForge.mod`가 그 폴더 바로 안에 있어야 합니다 (`...\MotionForge\MotionForge.mod` — 한 단계 더 안쪽이면 안 됩니다).
 `MotionForge.mod`는 그 폴더의 맨 위에 그대로 두세요 — 바로 옆의 `scripts\`, `plug-ins\` 폴더를 가리키고 있어서
 `.mod` 파일만 복사하면 동작하지 않습니다. 폴더 위치는 아무 데나 좋습니다 — 문서 폴더가 OneDrive로
 리디렉션되어 있다면 탐색기에 보이는 실제 경로를 쓰세요.
@@ -70,9 +72,12 @@ exec(open(r"C:\Users\<사용자>\Documents\maya\modules\MotionForge\scripts\moti
 ├── ardy\          ARDY (bin\ardy-server.exe, models\*.gguf, assets\cskel27\)
 ├── kimodo\        Kimodo (생성기 + 텍스트 인코더)
 └── motionbricks\  MotionBricks (DLL + 스타일)
+    └── soma\      사람: ONNX 모델, ONNX Runtime, 스타일 14개
 ```
 
 `MotionForge > Engine Status`를 누르면 Script Editor에 엔진마다 `ready` 또는 빠진 것이 출력됩니다.
+
+**업데이트.** **Install Engines**는 업데이트도 합니다. 공개된 런타임과 다른 파일은 교체되어, 예전 설치에도 새 Kimodo·ARDY·MotionBricks 런타임이 반영되고 사람 스타일도 함께 받습니다. **Check for Updates**(창, 또는 `MotionForge > Check for Engine Updates`)는 내려받지 않고 무엇이 새로운지 알려 주며, 새 것이 있으면 버튼이 **Update Engines**로 바뀝니다. 직접 만들거나 고친 스타일은 덮어쓰지 않습니다. 사람 모델과 ONNX Runtime은 Blender 애드온 설치와 공유되므로 엔진 폴더 하나로 둘 다 씁니다.
 
 ---
 
@@ -230,7 +235,11 @@ Kimodo는 테이크마다 엔진을 따로 실행합니다. 한 테이크에 수
 
 | 컨트롤 | 설명 |
 | --- | --- |
-| **+ / - / Add Selected** | 캐릭터 만들기(대기 자세로 섬) / 빼기·삭제 / 고른 골격을 목록에 넣기 |
+| **+ / - / Add Selected** | **+**는 **SOMA Human**(사람)과 **Unitree G1 Robot** 중 무엇을 추가할지 묻습니다. **-**는 제거/삭제, **Add Selected**는 고른 스켈레톤을 추가합니다. 사람도 로봇과 같은 Style, Go, Speed, Generate, Bake, Live, Retarget을 씁니다 |
+| **테이크 목록 (+ Take / - Take / Show Take)** | 캐릭터마다 테이크가 있고, 테이크마다 자기 스타일, 방향 또는 타깃, 속도, 시드, 길이를 가집니다. 한 타임라인에서 차례로 실행되며(예: 1-30, 31-90, 91-135프레임), **Generate Motion**은 체크된 테이크를 모두 만들고 각각 앞 테이크가 끝난 자리에서 시작합니다. **Bake**는 하나의 애니메이션으로 기록합니다. **Show Take**는 그 구간을 재생 범위로 바꿉니다 |
+| **End on Pose Key** (사람) | 테이크가 다음 포즈 키에서 끝납니다. 캐릭터를 움직이고 돌리고 포즈를 잡아 도착할 프레임(예: 50, 100)에 키를 찍으면, 시작 포즈에서 그 키까지 모션이 만들어집니다. 키 간격은 30fps 기준 19~59프레임이며, 키는 그대로 남고 **Bake**는 만든 프레임을 생성된 것으로 기록합니다 |
+| **Poses to Use (1-4) / Transition Early By** (사람) | 포즈를 여러 개 쓰면 목표에서 멈추지 않고 속도를 갖습니다. **Transition Early By**는 다음 테이크가 키에 도착하기 전에 시작하게 해 포즈 사이를 끊김 없이 지나갑니다 |
+| **Arrive in a Clip Pose** (사람) | 키 대신 스타일 클립의 한 포즈에서 끝납니다(**Clip**, **Clip Time**). 위치는 **Target** 또는 2m 앞이며, 길이는 **Fewest**~**Most** 토큰 안에서 모델이 정합니다 |
 | **With a Body** | 새 캐릭터에 간단한 몸 메쉬를 붙입니다 |
 | **Style** | 로드된 스타일 목록에서 고릅니다 |
 | **Go** | `In a Direction`(방향으로 계속 걷기) / `To a Target`(목표로 가서 멈추기) |
@@ -241,7 +250,8 @@ Kimodo는 테이크마다 엔진을 따로 실행합니다. 한 테이크에 수
 | **Cascadeur** | Cascadeur 링크 상태, **Connect/Disconnect**, **Refresh** |
 | **Bake / Discard** | 계획을 키로 기록 / 버리기 |
 | **Reset All** | 라이브를 멈추고 대기 중인 계획을 버린 뒤, 목록의 모든 MotionBricks 캐릭터 키를 지우고 쉬는 자세로 되돌립니다. 리타겟해 둔 캐릭터도 함께 리셋됩니다. 타임라인은 첫 프레임으로 |
-| **Styles** | **Style Name · Speed · Allowed Durations**. **Import FBX / BVH**로 모션 파일을 가져오고(가져온 파일의 최상위 노드는 **Source**, 뼈 이름 체계는 **Rig Type**에 표시됩니다) **Convert to Style**로 `.mbstyle`을 만듭니다 (MotionBricks 골격으로 리타겟 후 저장, 엔진이 어떻게 걷는지 바로 확인해서 알려 줌). **Save as Style**은 선택한 캐릭터의 애니메이션(재생 범위)을 스타일로 저장 |
+| **Styles** | 목록은 선택한 캐릭터가 쓸 수 있는 스타일입니다(**Use Style**, **Refresh**). 사람의 스타일 14개(idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, 팔꿈치·손 기기)는 **Install Engines**와 함께 받아집니다. **Make Missing**은 빠졌거나 지운 것을 Kimodo로 몇 분 안에 만듭니다. **Save as Style**은 베이크했거나 생성한 테이크(60프레임 이상)를 내 스타일로 저장합니다. Install Engines는 사람 모델(380MB, NVIDIA 라이선스)과 ONNX Runtime도 받으며, CPU에서 mayapy 별도 프로세스로 실행됩니다 |
+| **로봇 스타일** | **Style Name · Speed · Allowed Durations**. **Import FBX / BVH**로 모션 파일을 가져오고(가져온 파일의 최상위 노드는 **Source**, 뼈 이름 체계는 **Rig Type**에 표시됩니다) **Convert to Style**로 `.mbstyle`을 만듭니다 (MotionBricks 골격으로 리타겟 후 저장, 엔진이 어떻게 걷는지 바로 확인해서 알려 줌). **Save as Style**은 선택한 캐릭터의 애니메이션(재생 범위)을 스타일로 저장 |
 | **Reload Engine** | 엔진을 다시 불러옵니다 |
 
 > Maya에는 BVH 가져오기가 없어서 MotionForge가 직접 읽습니다 (회전 순서, fps 포함).
@@ -251,6 +261,7 @@ Kimodo는 테이크마다 엔진을 따로 실행합니다. 한 테이크에 수
 ![Retarget 패널](assets/panel-06-retarget.png)
 
 1. **Source Rig** — 비워 두면 가장 최근에 테이크를 넣은 리그. 목록에서 다른 MotionForge 리그를 고를 수 있습니다. 라이브 테이크가 Bake 전이면 먼저 Bake하고, 키가 없는 리그는 현재 자세를 옮깁니다.
+   - **MMD 모델**은 양방향으로 쓸 수 있습니다([maya_mmd_tools](https://github.com/yohawing/maya_mmd_tools) 설치 필요). 이 패널 맨 위 **MMD** 상자에 **Import MMD Model (PMX)**와 **Import MMD Motion (VMD)** 버튼이 있고, 가져온 모델은 이 목록에 `MMD: <이름>`으로 나타나며 키는 테이크와 같은 방식으로 복사됩니다. 테이크를 MMD 모델에 *입히려면* **Rig Type**을 **MMD model**로 두세요(Auto-Detect도 찾아 줍니다). 뼈는 MMD 이름으로 읽으므로 팔을 `upperarm_L`이라 부르는 모델도 `left_arm`이라 부르는 모델도 똑같이 동작합니다. 몸통과 팔다리가 매핑되며, 손가락과 비틀림 본은 아직 매핑되지 않습니다.
 2. 받을 캐릭터의 조인트(또는 몸 메쉬)를 선택하고 **Set Selected** (또는 Target Rig에 이름). **네임스페이스가 붙은 참조 캐릭터**(`Hero:Hips`)도 그대로 됩니다. 가져온 툴이 골격을 몸 메쉬 아래에 나눠 둔 경우(MetaHuman Builder의 `MMB_bodyShapeBof4|spine_04`)에는 메쉬로 등록되고, 그 아래 모든 조인트가 리타겟됩니다. 몸 골격 옆에 같은 이름의 골격이 하나 더 있는 캐릭터(메타휴먼 헤드 리그)는 몸 골격을 구동하고 그 복제 골격이 이를 따라갑니다. 라이브·Bake 모두 그렇습니다.
 3. **Rig Type**은 보통 자동 감지. 마야 애니메이터가 실제로 쓰는 컨트롤 리그 두 가지가 목록에 있습니다: **HumanIK Control Rig**와 **mGear EPIC 바이패드**. 테이크는 그 컨트롤에 키로 들어가고(골반과 다리는 HumanIK 이펙터로 — 이 솔버가 읽는 것은 그 채널입니다), 캐릭터는 컨트롤을 따라 움직입니다.
 4. **Method** — `MotionForge`(관절별 복사) / `HumanIK (Maya)`(두 리그를 HumanIK 캐릭터로 정의하고 Maya HumanIK로 구동 후 베이크).

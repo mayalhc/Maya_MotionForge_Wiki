@@ -20,6 +20,8 @@ nav:
   - MotionForge for Maya Guide:
     - "Welcome to MotionForge for Maya": index.md # 상위 메뉴 클릭 시 바로 보일 파일
     - "한국어 가이드": KO_index.md
+    - "Release Notes": RELEASE_NOTES.md
+    - "릴리즈 노트": KO_RELEASE_NOTES.md
     - "All add-ons & guides": https://mayalhc.github.io/GroomForge-Wiki/
 
 # 마크다운 확장 기능

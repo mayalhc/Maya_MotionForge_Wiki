@@ -24,7 +24,9 @@ It is a port of the MotionForge Blender add-on v0.5.0 to Maya 2027. Every engine
 
 ### 2-1. Register the module (once)
 
-Unzip the distribution into a permanent folder, e.g. `C:\Users\<you>\Documents\maya\modules\MotionForge`.
+The zip holds one folder, `Maya_MotionForge-<version>`. Unzip it, move that folder somewhere permanent and
+rename it `MotionForge`, e.g. `C:\Users\<you>\Documents\maya\modules\MotionForge`, so that
+`MotionForge.mod` sits directly inside it (`...\MotionForge\MotionForge.mod`, not one folder deeper).
 Keep `MotionForge.mod` at the root of that folder: it points at the `scripts\` and `plug-ins\` folders beside it,
 so copying the `.mod` on its own will not work. Any folder will do - if your Documents folder is redirected
 to OneDrive, use the path Explorer shows you.
@@ -70,9 +72,12 @@ Choose the Engine Folder with `MotionForge > Set Engine Folder...`. Inside it:
 ├── ardy\          ARDY (bin\ardy-server.exe, models\*.gguf, assets\cskel27\)
 ├── kimodo\        Kimodo (generator + text encoder)
 └── motionbricks\  MotionBricks (DLL + styles)
+    └── soma\      the person: ONNX model, ONNX Runtime, 14 styles
 ```
 
 `MotionForge > Engine Status` prints `ready` (or what is missing) for each engine in the Script Editor.
+
+**Updating.** **Install Engines** also updates: a runtime file that differs from the published one is replaced, so a newer Kimodo, ARDY or MotionBricks runtime reaches an older install, and the person's styles are fetched with it. **Check for Updates** (in the window, or `MotionForge > Check for Engine Updates`) says what is newer without downloading it, and turns the button into **Update Engines** when there is something. A style you made or edited is never overwritten. The person's model and ONNX Runtime are shared with the Blender add-on's install, so one Engine Folder serves both.
 
 ---
 
@@ -230,7 +235,11 @@ Walks in a style with no prompt. **Generate Motion** only plans, and the plan **
 
 | Control | What it does |
 | --- | --- |
-| **+ / - / Add Selected** | Make a character (standing in the idle pose) / remove or delete / add a picked skeleton |
+| **+ / - / Add Selected** | **+** asks for a **SOMA Human** or a **Unitree G1 Robot**; **-** removes or deletes; **Add Selected** adds a picked skeleton. The person has the same Style, Go, Speed, Generate, Bake, Live and Retarget as the robot |
+| **Take list (+ Take / - Take / Show Take)** | Every character has takes, each with its own style, direction or target, speed, seed and length. They run one after the other on one timeline (say frames 1-30, 31-90, 91-135); **Generate Motion** makes all the ticked ones, each starting where the one before ended, and **Bake** writes them into one animation. **Show Take** makes that stretch the playback range |
+| **End on Pose Key** (person) | The take ends on the next pose key: move, turn and pose the character and key it on the frames it should arrive at (say 50 and 100); the take is made up to there, from the pose it starts on. Keys can be 19 to 59 frames apart at 30 fps. The keys stay, and **Bake** records the frames it made as generated |
+| **Poses to Use (1-4) / Transition Early By** (person) | More than one pose gives the target a speed instead of a stop; **Transition Early By** lets the next take start on the way to the key, so the character flows through its poses |
+| **Arrive in a Clip Pose** (person) | The take ends in a pose of a style's clip (**Clip**, **Clip Time**), placed at its **Target** or 2 m ahead; the model picks the length between **Fewest** and **Most** tokens |
 | **With a Body** | Give new characters a simple body mesh |
 | **Style** | Pick from the loaded styles |
 | **Go** | `In a Direction` (keep walking) / `To a Target` (walk there and stop) |
@@ -241,7 +250,8 @@ Walks in a style with no prompt. **Generate Motion** only plans, and the plan **
 | **Cascadeur** | Link state, **Connect/Disconnect**, **Refresh** |
 | **Bake / Discard** | Write the plan as keys / throw it away |
 | **Reset All** | Stops a live run, drops any unbaked plan, then clears every MotionBricks character's keys and puts them back at rest along with the characters they were retargeted onto; the timeline returns to its first frame |
-| **Styles** | **Style Name · Speed · Allowed Durations**. **Import FBX / BVH** brings in a clip (its top node shows in **Source**, its joint naming in **Rig Type**) and **Convert to Style** writes an `.mbstyle` (retargeted onto the MotionBricks skeleton; the engine's verdict on it is shown at once). **Save as Style** saves the selected character's animation (playback range) |
+| **Styles** | The list is what the selected character can use (**Use Style**, **Refresh**). The person's 14 styles - idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, and elbow and hand crawling - come with **Install Engines**; **Make Missing** makes any that are missing (or that you deleted) with Kimodo in a few minutes; **Save as Style** adds your own from a baked or generated take (at least 60 frames). Install Engines also fetches the person's model (380 MB, NVIDIA's licence) and ONNX Runtime; it runs on the CPU, in a mayapy of its own |
+| **Robot styles** | **Style Name · Speed · Allowed Durations**. **Import FBX / BVH** brings in a clip (its top node shows in **Source**, its joint naming in **Rig Type**) and **Convert to Style** writes an `.mbstyle` (retargeted onto the MotionBricks skeleton; the engine's verdict on it is shown at once). **Save as Style** saves the selected character's animation (playback range) |
 | **Reload Engine** | Load the engine again |
 
 > Maya has no BVH importer, so MotionForge reads BVH itself (rotation orders and frame rate included).
@@ -251,6 +261,7 @@ Walks in a style with no prompt. **Generate Motion** only plans, and the plan **
 ![Retarget panel](assets/panel-06-retarget.png)
 
 1. **Source Rig** — empty means the rig the newest take went onto; any MotionForge rig can be picked. A live take still waiting is baked first, and a rig with no keys sends the pose it is in.
+   - **MMD models** work both ways, with [maya_mmd_tools](https://github.com/yohawing/maya_mmd_tools) installed. The **MMD** box at the top of this panel has **Import MMD Model (PMX)** and **Import MMD Motion (VMD)**; an imported model appears in this list as `MMD: <name>`, and its keys are copied like any take. To put a take *on* an MMD model, set **Rig Type** to **MMD model** (Auto-Detect finds one too). Bones are read by their MMD names, so a model that calls its arm `upperarm_L` works as well as one that calls it `left_arm`. Torso and limbs are mapped; finger and twist bones are not yet.
 2. Select a joint of the receiving character - or its body mesh - and press **Set Selected** (or type a name). **Referenced characters with a namespace** (`Hero:Hips`) work as they are. A skeleton an importer left split under its body mesh (MetaHuman Builder's `MMB_bodyShapeBof4|spine_04`) is named by the mesh, and every joint under it is retargeted. When the character carries a second skeleton beside the body one (MetaHuman Builder's head rig, bone names and all), the body skeleton is the one driven and the copy follows it - live and baked - instead of the two being mapped onto one another.
 3. **Rig Type** — usually auto-detect. The two control rigs Maya animators work with are in the list: **HumanIK Control Rig** and **mGear EPIC biped**. The take is keyed onto their controls (the pelvis and legs onto the HumanIK effectors, whose channels are what that solver reads), and the character follows the controls.
 4. **Method** — `MotionForge` (joint by joint) / `HumanIK (Maya)` (both defined as HumanIK characters, driven by Maya's HumanIK, then baked).
