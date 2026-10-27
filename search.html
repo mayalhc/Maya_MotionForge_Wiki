@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="chamiseul" />
+      <link rel="shortcut icon" href="./img/favicon.ico" />
+    <title>MotionForge for Maya — User Guide</title>
+    <link rel="stylesheet" href="./css/theme.css" />
+    <link rel="stylesheet" href="./css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="./custom.css" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+      <script src="./js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="./." class="icon icon-home"> MotionForge for Maya — User Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">MotionForge for Maya Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="./.">Welcome to MotionForge for Maya</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="./.#whats-new-in-020">What's new in 0.2.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./.#new">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#changed">Changed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#fixed">Fixed</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#1-what-you-need">1. What you need</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#2-installation">2. Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./.#2-1-register-the-module-once">2-1. Register the module (once)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#2-2-load-the-plug-in">2-2. Load the plug-in</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#2-3-shelf-optional">2-3. Shelf (optional)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#3-first-time-setup-the-engine-folder">3. First-time setup — the Engine Folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#4-where-things-are">4. Where things are</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#5-your-first-animation-5-minutes">5. Your first animation (5 minutes)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#6-the-panels">6. The panels</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-1-motionforge-engines-connection-rigs">6-1. MotionForge — engines, connection, rigs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="./.#mgear-when-installed">mGear (when installed)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-2-text-to-motion-takes">6-2. Text to Motion — takes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-3-live-path-steering">6-3. Live Path — steering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-4-kimodo">6-4. Kimodo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-5-motionbricks-walking">6-5. MotionBricks — walking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-6-retarget-onto-your-own-character">6-6. Retarget — onto your own character</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#6-7-send-to-cascadeur">6-7. Send to Cascadeur</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#7-cascadeur">7. Cascadeur</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./.#7-1-install-once">7-1. Install (once)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#7-2-sending">7-2. Sending</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#7-3-live-mirror">7-3. Live mirror</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./.#7-4-receiving-from-cascadeur">7-4. Receiving (From Cascadeur)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#8-good-to-know-in-maya">8. Good to know in Maya</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#9-reload-update-without-restarting-maya">9. Reload — update without restarting Maya</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#10-how-it-differs-from-blender">10. How it differs from Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#11-troubleshooting">11. Troubleshooting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./.#12-licence">12. Licence</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="./KO_index/">한국어 가이드</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#020">0.2.0 새 기능</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#_1">새로 추가</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#_2">바뀐 점</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#_3">고친 점</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#1">1. 준비물</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#2">2. 설치</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#2-1">2-1. 모듈 등록 (한 번만)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#2-2">2-2. 플러그인 켜기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#2-3">2-3. 셸프 (선택)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#3">3. 처음 설정 — 엔진 폴더</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#4">4. 화면 구성</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#5-5">5. 첫 번째 애니메이션 (5분)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#6">6. 패널별 사용법</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-1-motionforge">6-1. MotionForge — 엔진, 연결, 리그</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="./KO_index/#mgear">mGear (설치되어 있으면)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-2-text-to-motion">6-2. Text to Motion — 테이크</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-3-live-path">6-3. Live Path — 실시간 조종</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-4-kimodo">6-4. Kimodo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-5-motionbricks">6-5. MotionBricks — 걷기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-6-retarget">6-6. Retarget — 내 캐릭터에 옮기기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#6-7-send-to-cascadeur">6-7. Send to Cascadeur</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#7-cascadeur">7. Cascadeur 연동</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#7-1">7-1. 설치 (한 번만)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#7-2">7-2. 보내기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#7-3-live">7-3. 실시간 미러 (Live)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="./KO_index/#7-4-from-cascadeur">7-4. 받아오기 (From Cascadeur)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#8-maya">8. Maya에서 알아두면 좋은 동작</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#9-reload-maya">9. Reload — Maya 재시작 없이 업데이트</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#10-blender">10. Blender와 다른 점</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#11">11. 문제 해결</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="./KO_index/#12">12. 라이선스</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://mayalhc.github.io/GroomForge-Wiki/">All add-ons & guides</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="./.">MotionForge for Maya — User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="./." class="icon icon-home" aria-label="Docs"></a></li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+
+  <h1 id="search">Search Results</h1>
+
+  <form id="content_search" action="search.html">
+    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" aria-label="Search the Docs" autocomplete="off" autofocus title="Type search term here">
+  </form>
+
+  <div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
+    Searching...
+  </div>
+
+
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="./js/theme_extra.js"></script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

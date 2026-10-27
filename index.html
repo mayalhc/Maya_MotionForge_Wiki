@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="chamiseul" /><link rel="canonical" href="https://mayalhc.github.io/Maya_MotionForge_Wiki/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Welcome to MotionForge for Maya - MotionForge for Maya — User Guide</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Welcome to MotionForge for Maya";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/Maya_MotionForge_Wiki/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> MotionForge for Maya — User Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">MotionForge for Maya Guide</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Welcome to MotionForge for Maya</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#whats-new-in-020">What's new in 0.2.0</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new">New</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-what-you-need">1. What you need</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-installation">2. Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#2-1-register-the-module-once">2-1. Register the module (once)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-2-load-the-plug-in">2-2. Load the plug-in</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-3-shelf-optional">2-3. Shelf (optional)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-first-time-setup-the-engine-folder">3. First-time setup — the Engine Folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-where-things-are">4. Where things are</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-your-first-animation-5-minutes">5. Your first animation (5 minutes)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-the-panels">6. The panels</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#6-1-motionforge-engines-connection-rigs">6-1. MotionForge — engines, connection, rigs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#mgear-when-installed">mGear (when installed)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-2-text-to-motion-takes">6-2. Text to Motion — takes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-3-live-path-steering">6-3. Live Path — steering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-4-kimodo">6-4. Kimodo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-5-motionbricks-walking">6-5. MotionBricks — walking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-6-retarget-onto-your-own-character">6-6. Retarget — onto your own character</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-7-send-to-cascadeur">6-7. Send to Cascadeur</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-cascadeur">7. Cascadeur</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7-1-install-once">7-1. Install (once)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7-2-sending">7-2. Sending</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7-3-live-mirror">7-3. Live mirror</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7-4-receiving-from-cascadeur">7-4. Receiving (From Cascadeur)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-good-to-know-in-maya">8. Good to know in Maya</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9-reload-update-without-restarting-maya">9. Reload — update without restarting Maya</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#10-how-it-differs-from-blender">10. How it differs from Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#11-troubleshooting">11. Troubleshooting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#12-licence">12. Licence</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KO_index/">한국어 가이드</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#020">0.2.0 새 기능</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#_1">새로 추가</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#_2">바뀐 점</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#_3">고친 점</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#1">1. 준비물</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#2">2. 설치</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#2-1">2-1. 모듈 등록 (한 번만)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#2-2">2-2. 플러그인 켜기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#2-3">2-3. 셸프 (선택)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#3">3. 처음 설정 — 엔진 폴더</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#4">4. 화면 구성</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#5-5">5. 첫 번째 애니메이션 (5분)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#6">6. 패널별 사용법</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-1-motionforge">6-1. MotionForge — 엔진, 연결, 리그</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="KO_index/#mgear">mGear (설치되어 있으면)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-2-text-to-motion">6-2. Text to Motion — 테이크</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-3-live-path">6-3. Live Path — 실시간 조종</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-4-kimodo">6-4. Kimodo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-5-motionbricks">6-5. MotionBricks — 걷기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-6-retarget">6-6. Retarget — 내 캐릭터에 옮기기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#6-7-send-to-cascadeur">6-7. Send to Cascadeur</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#7-cascadeur">7. Cascadeur 연동</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#7-1">7-1. 설치 (한 번만)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#7-2">7-2. 보내기</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#7-3-live">7-3. 실시간 미러 (Live)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="KO_index/#7-4-from-cascadeur">7-4. 받아오기 (From Cascadeur)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#8-maya">8. Maya에서 알아두면 좋은 동작</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#9-reload-maya">9. Reload — Maya 재시작 없이 업데이트</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#10-blender">10. Blender와 다른 점</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#11">11. 문제 해결</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="KO_index/#12">12. 라이선스</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://mayalhc.github.io/GroomForge-Wiki/">All add-ons & guides</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">MotionForge for Maya — User Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MotionForge for Maya Guide</li>
+      <li class="breadcrumb-item active">Welcome to MotionForge for Maya</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="motionforge-for-maya-user-guide">MotionForge for Maya — User Guide</h1>
+<p>A Maya plug-in that turns one line of text into character motion, moves it onto your own character, and sends it to Cascadeur.
+It is a port of the MotionForge Blender add-on v0.5.0 to Maya 2027. Every engine runs <strong>on your own computer</strong>; nothing is sent over the internet.</p>
+<blockquote>
+<p>한국어: <a href="KO_index/">KO_index.md</a></p>
+</blockquote>
+<p><img alt="MotionForge thumbnail - character motion from one line of text" src="assets/promo/thumbnail-1920x1080-en.png" /></p>
+<hr />
+<h2 id="whats-new-in-020">What's new in 0.2.0</h2>
+<blockquote>
+<p><strong>Updating from 0.1.0:</strong> after installing 0.2.0, press <strong>Install Engines</strong> in the MotionForge window once. It updates the MotionBricks runtime in your Engine Folder, and the person (SOMA Human) needs it for its model and styles. <strong>Check for Updates</strong> next to it says what is newer without downloading it.</p>
+</blockquote>
+<h3 id="new">New</h3>
+<p><strong>A person joins MotionBricks</strong>
+- The <strong>+</strong> in the MotionBricks panel asks for a <strong>SOMA Human</strong> or the <strong>Unitree G1 Robot</strong>. The person has the same Style, Go, Speed, <strong>Generate Motion</strong>, <strong>Bake</strong>, <strong>Live</strong> and Retarget as the robot.
+- A person's 14 styles - idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, and elbow and hand crawling - come with <strong>Install Engines</strong>. <strong>Make Missing</strong> in the Styles box makes any that are missing with Kimodo, and <strong>Save as Style</strong> adds your own from a baked or generated take.
+- <strong>Install Engines</strong> also fetches the person's model (380 MB) with NVIDIA's licence. It runs on the CPU, in a mayapy of its own - no GPU needed.</p>
+<p><strong>Takes, for the person and the robot</strong>
+- Every character has a list of takes (<strong>+ Take / - Take / Show Take</strong>). A take has its own style, direction or target, speed, seed and length, and they are saved with the scene.
+- The takes run one after the other on one timeline - for example frames 1-30, 31-90, 91-135 - and <strong>Generate Motion</strong> makes all the ticked ones, each starting where the one before ended. <strong>Bake</strong> writes them into one animation.</p>
+<p><strong>Pose to pose</strong>
+- Tick <strong>End on Pose Key</strong> on a take of a person. Move, turn and pose the character and key it on the frames it should arrive at - say 50 and 100 - and each take is made up to its key, from the pose it starts on. Keys can be 19 to 59 frames apart at 30 fps.
+- <strong>Poses to Use</strong> (1 to 4) and <strong>Transition Early By</strong> let the character flow through its poses without halting. <strong>Arrive in a Clip Pose</strong> makes a take end in a pose of a style's clip.</p>
+<p><strong>MMD characters, both ways</strong>
+- With <a href="https://github.com/yohawing/maya_mmd_tools">maya_mmd_tools</a> installed, the Retarget panel has an <strong>MMD</strong> box: <strong>Import MMD Model (PMX)</strong> and <strong>Import MMD Motion (VMD)</strong>.
+- An imported model is a <strong>source</strong> (<code>MMD: &lt;name&gt;</code> in the list; its VMD keys are copied like any take) and a <strong>target</strong> (set <strong>Rig Type</strong> to <strong>MMD model</strong>; Auto-Detect finds one too). Bones are read by their MMD names, so <code>upperarm_L</code> works as well as <code>left_arm</code>.
+- The legs are switched to FK for the bake, so the leg IK no longer holds them still: the knees stand as keyed from the first frame, the skin's D-bone legs follow, and the IK controllers ride along with the feet. <strong>Reset All</strong> switches the IK back on. The arm, elbow, hand and neck solvers are left alone.</p>
+<h3 id="changed">Changed</h3>
+<ul>
+<li><strong>Install Engines</strong> now updates too: a runtime file that differs from the published one is replaced, so a newer Kimodo, ARDY or MotionBricks runtime reaches an older install. A style you made or edited is never overwritten. The person's model and ONNX Runtime are shared with the Blender add-on's install, so one Engine Folder serves both.</li>
+<li>Installation now says exactly how to lay out the folder: rename the unzipped <code>Maya_MotionForge-&lt;version&gt;</code> folder to <code>MotionForge</code>, so <code>MotionForge.mod</code> sits directly inside the folder on <code>MAYA_MODULE_PATH</code>.</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li><strong>MMD target legs.</strong> The leg IK used to hold the legs still, bent the knees in the rest pose so the first frame was already folded, and left the skin's D-bone legs reading the idle solver - the body stood stiff while the FK bones moved.</li>
+<li>An MMD model registered as a group (what Set Selected makes) is recognised as an MMD model.</li>
+<li>Each take in the Live Path list has its own length.</li>
+</ul>
+<hr />
+<h2 id="1-what-you-need">1. What you need</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maya</td>
+<td>Maya 2027 (Windows, 64-bit)</td>
+</tr>
+<tr>
+<td>Engines</td>
+<td>A MotionForge Engine Folder (ARDY · Kimodo · MotionBricks) — the same folder the Blender add-on uses works</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>ARDY is fast on a GPU (Vulkan); without one it runs on the CPU</td>
+</tr>
+<tr>
+<td>Cascadeur</td>
+<td>Optional. Only needed to send motion to Cascadeur or watch it live there</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-installation">2. Installation</h2>
+<h3 id="2-1-register-the-module-once">2-1. Register the module (once)</h3>
+<p>The zip holds one folder, <code>Maya_MotionForge-&lt;version&gt;</code>. Unzip it, move that folder somewhere permanent and
+rename it <code>MotionForge</code>, e.g. <code>C:\Users\&lt;you&gt;\Documents\maya\modules\MotionForge</code>, so that
+<code>MotionForge.mod</code> sits directly inside it (<code>...\MotionForge\MotionForge.mod</code>, not one folder deeper).
+Keep <code>MotionForge.mod</code> at the root of that folder: it points at the <code>scripts\</code> and <code>plug-ins\</code> folders beside it,
+so copying the <code>.mod</code> on its own will not work. Any folder will do - if your Documents folder is redirected
+to OneDrive, use the path Explorer shows you.</p>
+<p>Then put that folder on <code>MAYA_MODULE_PATH</code>, one of two ways:</p>
+<ul>
+<li><strong>Environment variable</strong>: Windows &gt; System Properties &gt; Environment Variables &gt; New user variable
+  <code>MAYA_MODULE_PATH</code> = <code>C:\Users\&lt;you&gt;\Documents\maya\modules\MotionForge</code>. If it already exists, append
+  <code>;C:\Users\&lt;you&gt;\Documents\maya\modules\MotionForge</code>.</li>
+<li><strong>Maya.env</strong>: add the same line to the <code>Maya.env</code> file of your Maya version
+  (e.g. <code>C:\Users\&lt;you&gt;\Documents\maya\2027\Maya.env</code>):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>MAYA_MODULE_PATH = C:\Users\&lt;you&gt;\Documents\maya\modules\MotionForge
+</code></pre></div>
+<p>Restart Maya.</p>
+<h3 id="2-2-load-the-plug-in">2-2. Load the plug-in</h3>
+<p>In <code>Windows &gt; Settings/Preferences &gt; Plug-in Manager</code>, tick <strong>Loaded</strong> for <strong>MotionForge</strong>. Tick <strong>Auto load</strong> too if you want it every session.
+A <strong>MotionForge</strong> menu appears in the menu bar.</p>
+<h3 id="2-3-shelf-optional">2-3. Shelf (optional)</h3>
+<p>Run once in the Script Editor's Python tab:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">"C:\Users\&lt;you&gt;\Documents\maya\modules\MotionForge\scripts\motionforge_shelf.py"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+<p>This creates the <strong>MotionForge</strong> shelf: <code>Load</code> · <code>Window</code> · <code>Connect</code> · <code>Rig</code> · <code>Generate</code> · <code>Kimodo</code> · <code>MB</code> · <code>Retarget</code> · <code>Reload</code>.
+Running it again does not duplicate the shelf.</p>
+<hr />
+<h2 id="3-first-time-setup-the-engine-folder">3. First-time setup — the Engine Folder</h2>
+<p>Choose the Engine Folder with <code>MotionForge &gt; Set Engine Folder...</code>. Inside it:</p>
+<div class="highlight"><pre><span></span><code>&lt;Engine Folder&gt;\
+├── ardy\          ARDY (bin\ardy-server.exe, models\*.gguf, assets\cskel27\)
+├── kimodo\        Kimodo (generator + text encoder)
+└── motionbricks\  MotionBricks (DLL + styles)
+    └── soma\      the person: ONNX model, ONNX Runtime, 14 styles
+</code></pre></div>
+<p><code>MotionForge &gt; Engine Status</code> prints <code>ready</code> (or what is missing) for each engine in the Script Editor.</p>
+<p><strong>Updating.</strong> <strong>Install Engines</strong> also updates: a runtime file that differs from the published one is replaced, so a newer Kimodo, ARDY or MotionBricks runtime reaches an older install, and the person's styles are fetched with it. <strong>Check for Updates</strong> (in the window, or <code>MotionForge &gt; Check for Engine Updates</code>) says what is newer without downloading it, and turns the button into <strong>Update Engines</strong> when there is something. A style you made or edited is never overwritten. The person's model and ONNX Runtime are shared with the Blender add-on's install, so one Engine Folder serves both.</p>
+<hr />
+<h2 id="4-where-things-are">4. Where things are</h2>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MotionForge menu</strong></td>
+<td>Open the window, connect/disconnect ARDY, create a rig, one-click generation (ARDY · Kimodo · MotionBricks), retarget, Engine Folder, Engine Status, Install Engines, Install Cascadeur Plug-in, Reload, About</td>
+</tr>
+<tr>
+<td><strong>Shelf</strong></td>
+<td>The same one-click entries</td>
+</tr>
+<tr>
+<td><strong>MotionForge window</strong></td>
+<td>The full tool. <code>Open MotionForge Window</code> (shelf <code>Window</code>) docks it on the right; it can be floated or tabbed</td>
+</tr>
+</tbody>
+</table>
+<p>The window carries Blender's seven panels <strong>in the same order, with the same names</strong>, and every control works.</p>
+<ol>
+<li>MotionForge — engines, connection, rigs, HumanIK</li>
+<li>Text to Motion — takes from text</li>
+<li>Live Path — steering in real time</li>
+<li>Kimodo — the Kimodo engine (several characters)</li>
+<li>MotionBricks — the walking engine (several characters, live, styles)</li>
+<li>Retarget — onto your own character</li>
+<li>Send to Cascadeur — to Cascadeur and back</li>
+</ol>
+<p>Every setting and list in the window (takes, waypoints, pose keys, live takes, Kimodo and MotionBricks characters, the Share list) is <strong>saved with the scene</strong> and comes back when it is reopened.</p>
+<p>The line at the top shows what the last button did, or why it failed.</p>
+<p><img alt="The MotionForge panel docked on the right of Maya" src="assets/maya-window.png" /></p>
+<hr />
+<h2 id="5-your-first-animation-5-minutes">5. Your first animation (5 minutes)</h2>
+<ol>
+<li><code>MotionForge &gt; Connect ARDY</code> — loads the model (seconds).</li>
+<li><code>MotionForge &gt; Create Rig</code> — a 27-joint rig with its body mesh.</li>
+<li><code>MotionForge &gt; Generate Motion...</code> — type <code>a person walks forward</code>.</li>
+<li>The take is keyed and the scene is set to the engine's rate (ARDY: 20 fps) with real-time playback. Play it.</li>
+</ol>
+<blockquote>
+<p>The first generation can take a while while the text encoder warms up (about 100 s on this PC); later ones are quick.
+The window's Generate buttons run <strong>in the background</strong>, so Maya stays usable; the status line shows progress.</p>
+</blockquote>
+<hr />
+<h2 id="6-the-panels">6. The panels</h2>
+<h3 id="6-1-motionforge-engines-connection-rigs">6-1. MotionForge — engines, connection, rigs</h3>
+<p><img alt="MotionForge panel" src="assets/panel-01-motionforge.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Engines</strong> box</td>
+<td>Each engine's state (<code>ready</code> or what is missing) and the Engine Folder</td>
+</tr>
+<tr>
+<td><strong>Set Engine Folder</strong></td>
+<td>Choose the Engine Folder</td>
+</tr>
+<tr>
+<td><strong>Install Engines</strong></td>
+<td>Download the engines (in the background with progress; press again to stop). If this repository carries no engine download manifests it says so — point the Engine Folder at the one the Blender add-on installed</td>
+</tr>
+<tr>
+<td><strong>Install Cascadeur Plug-in</strong></td>
+<td>Runs <code>install_mf_maya.bat</code> (asks for Administrator)</td>
+</tr>
+<tr>
+<td><strong>Connect ARDY / Disconnect</strong></td>
+<td>Start and stop the ARDY engine (connecting runs in the background). Disconnecting frees GPU memory</td>
+</tr>
+<tr>
+<td><strong>Skip Text Encoder</strong></td>
+<td>Connect without the text encoder (no prompts, faster)</td>
+</tr>
+<tr>
+<td><strong>Ping</strong></td>
+<td>Whether ARDY answers, and how fast</td>
+</tr>
+<tr>
+<td><strong>Create Rig / Create Skin</strong></td>
+<td>A joint rig of the engine's skeleton, with its body mesh</td>
+</tr>
+<tr>
+<td><strong>HumanIK Character</strong></td>
+<td>When on, every new rig (ARDY · Kimodo · MotionBricks) is <strong>defined as a HumanIK character</strong></td>
+</tr>
+<tr>
+<td><strong>Generated Rigs / Use Rig</strong></td>
+<td>The rigs made so far; the picked one becomes the generation target</td>
+</tr>
+<tr>
+<td><strong>Define as HumanIK</strong></td>
+<td>Define the selected rig — or your character's joints — as a HumanIK character. A character's joints are read with Retarget's Rig Type</td>
+</tr>
+<tr>
+<td><strong>Control Rig</strong></td>
+<td>Build the HumanIK Control Rig (FK/IK controls)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mgear-when-installed">mGear (when installed)</h4>
+<p>With <a href="https://mgear-framework.com">mGear</a> (open source, MIT) installed in Maya, a MotionForge character can wear <strong>mGear's EPIC biped control rig</strong>. Generated takes are keyed onto the mGear controls (FK and IK both), and the character follows the controls, so generated motion is polished like any keyframed animation. Without mGear these buttons are greyed out with the reason shown.</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Build mGear Rig</strong></td>
+<td>Fits mGear's guide onto the selected character (any joint of it) and builds the rig. A take already on it is baked onto the controls and connected. A 77-joint character gets finger controls too</td>
+</tr>
+<tr>
+<td><strong>Bake Take to mGear</strong></td>
+<td>Bakes a new take onto the controls (arms and legs in FK and IK both — switch with <code>arm_blend</code> / <code>leg_blend</code>)</td>
+</tr>
+<tr>
+<td><strong>Connect / Disconnect</strong></td>
+<td>The controls drive the character / the character plays its own keys again</td>
+</tr>
+<tr>
+<td><strong>Remove</strong></td>
+<td>Deletes the mGear rig and guide; the character keeps its keys</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>mGear builds one biped per scene. Remove it before rigging another character.</li>
+<li>With knees and elbows bending as hinges, FK and IK both match the original motion within 0.5 cm. IK poles are placed in the plane the limb actually bends in, frame by frame.</li>
+</ul>
+<h3 id="6-2-text-to-motion-takes">6-2. Text to Motion — takes</h3>
+<p><img alt="Text to Motion panel" src="assets/panel-02-text-to-motion.png" /></p>
+<p>A <strong>take</strong> is one generation: its own prompt, length, seed, target rig and path curve. With no takes the panel shows a "Start here" line.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>+ / -</strong></td>
+<td>Add or remove a take. A new take copies the previous one's prompt and length</td>
+</tr>
+<tr>
+<td><strong>Use Take</strong></td>
+<td>Put a generated take back on its rig</td>
+</tr>
+<tr>
+<td><strong>Prompt / Preset</strong></td>
+<td>What happens. Preset offers example sentences</td>
+</tr>
+<tr>
+<td><strong>Source Rig</strong></td>
+<td>The rig this take goes onto; <code>(active source)</code> is the active rig</td>
+</tr>
+<tr>
+<td><strong>Duration / Seed</strong></td>
+<td>Length in seconds / <code>-1</code> differs every time, a number repeats a result</td>
+</tr>
+<tr>
+<td><strong>Include in Generate All</strong></td>
+<td>Off leaves the take out of Generate All</td>
+</tr>
+<tr>
+<td><strong>Continue from the take above</strong></td>
+<td>Starts where the take above ended</td>
+</tr>
+<tr>
+<td><strong>Create Curve / Disconnect Curve</strong></td>
+<td>A path (NURBS curve) for this take alone, or disconnect it. A take with a curve walks the curve instead of the waypoints (facing along it with Face Waypoint Direction)</td>
+</tr>
+<tr>
+<td><strong>Reduce Foot Skating</strong></td>
+<td>Foot-skate fix (when off, a warning says waypoints and pose keys will only be approximate)</td>
+</tr>
+<tr>
+<td><strong>Denoising Steps / Prompt Strength / Constraint Strength</strong></td>
+<td>Quality and how hard prompt and constraints are followed</td>
+</tr>
+<tr>
+<td><strong>Generate Take / Generate All (n)</strong></td>
+<td>The selected take / every enabled take. While generating, Generate All becomes <strong>Stop</strong></td>
+</tr>
+<tr>
+<td><strong>Stream to Unreal / Stream Port</strong></td>
+<td>Send the finished takes out live (see 6-3)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Waypoints — "pass through here on this frame"</strong></p>
+<ol>
+<li>Turn on <strong>Follow Waypoints</strong>.</li>
+<li>Put the time slider on a frame and press <strong>+</strong>: an <code>MF_Waypoint_01</code> locator appears (at the selected object or the origin, facing the way the rig faces).</li>
+<li>Pick one in the list to change its <strong>Frame / Enabled</strong>.</li>
+<li><strong>Face Waypoint Direction</strong> makes the character face the locator's +Z.</li>
+<li>Waypoints are read <strong>relative to the rig</strong>: put the rig in a group and move or turn the group, and it still walks to where they were placed.</li>
+</ol>
+<p><strong>Pose keys — "hold this pose on this frame"</strong></p>
+<ol>
+<li>Turn on <strong>Use Pose Keys</strong>.</li>
+<li>On the frame you want, press <strong>+</strong>: a copy of the rig, <code>MF_Pose_001</code>, appears.</li>
+<li><strong>Pose Key</strong> (shown as <strong>Pose <rig></strong> once a key is picked) jumps to the key's frame and selects its rig.</li>
+<li><strong>IK On</strong> gives the arms and legs Maya ikHandles (rotate-plane, with pole vectors) to pose by the hands and feet; <strong>IK Off</strong> keeps the pose in the joints and removes the handles.</li>
+<li><strong>Pin</strong>: <code>Whole Body</code> holds every joint; <code>Parts</code> holds only the hands and feet ticked (LH · RH · LF · RF) and lets the model make the rest.</li>
+<li>Generate Take.</li>
+</ol>
+<h3 id="6-3-live-path-steering">6-3. Live Path — steering</h3>
+<p><img alt="Live Path panel" src="assets/panel-03-live-path.png" /></p>
+<p>The character walks while you drag a cone to steer it. Keys are written only when you <strong>Bake</strong>.</p>
+<ol>
+<li>ARDY must be connected.</li>
+<li><strong>+</strong> adds a live take; set its Prompt · Rig · Seed · Enabled.</li>
+<li><strong>Add Target</strong> makes the steering cone <code>MF_Live_Target_1</code> and selects it.</li>
+<li><strong>Start Live</strong> — drag or turn the cone. <strong>Esc</strong> or <strong>Stop Live</strong> ends it.</li>
+<li><strong>Bake</strong> writes the keys, <strong>Discard</strong> throws them away, <strong>Reset All</strong> clears the ARDY rigs' keys, puts them back at rest (T-pose) and returns the timeline to its first frame — and puts every character they were retargeted onto back at rest too (6-6).</li>
+<li>Characters in the Share list (6-6) <strong>follow along</strong> during the run, posed rather than keyed; Bake fills them with keys.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stop After</strong></td>
+<td>Stops on its own after this many seconds (<code>0</code> never)</td>
+</tr>
+<tr>
+<td><strong>Face Target Direction</strong></td>
+<td>Face where the cone's tip points</td>
+</tr>
+<tr>
+<td><strong>Stream to Unreal / Stream Port</strong></td>
+<td>Push the motion over TCP (default 9560): one JSON object a line (hello / frame / end), axis-angle per joint plus the root translation (metres, Y up). Unreal Live Link, Unity and others can drive a character from it</td>
+</tr>
+<tr>
+<td><strong>Export Rig for Unreal (FBX)</strong></td>
+<td>Saves the skeleton the stream lands on (cm, with a body). Import it in Unreal and drive it with a Live Link Pose node</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-4-kimodo">6-4. Kimodo</h3>
+<p><img alt="Kimodo panel" src="assets/panel-04-kimodo.png" /></p>
+<p>Kimodo runs its engine per take; a take takes tens of seconds to minutes and runs <strong>in the background</strong>.</p>
+<ol>
+<li>Pick <strong>With a Body / With Fingers</strong> and press <strong>+</strong> for a character.</li>
+<li>Fingers off: 30 joints; on: 77 joints with fingers.</li>
+<li>Body: ARDY's real skin on the 77, a simple proxy body over the joints on the 30.</li>
+<li>Each character has its own <strong>Enabled · Prompt · Seed</strong> (pick it in the list to edit).</li>
+<li><strong>-</strong> takes it out of the list or deletes it (it asks); <strong>Add Selected</strong> adds a SOMA skeleton picked in the scene, including ones brought in from BVH or FBX.</li>
+<li>Set Duration · Denoising Steps (20 by default) · Prompt Strength · Constraint Strength · Reduce Foot Skating, then <strong>Generate Motion</strong>: every enabled character is generated in turn and keyed as it lands. While running the button reads <strong>Stop Waiting</strong> (the take in progress still finishes).</li>
+<li><strong>Reset All</strong> clears every Kimodo character's keys, puts them back at rest (T-pose) and returns the timeline to its first frame. The characters the takes were retargeted onto (6-6) are reset with them.</li>
+<li><strong>Export SOMA BVH</strong> / <strong>Reload Engine</strong>.</li>
+</ol>
+<h3 id="6-5-motionbricks-walking">6-5. MotionBricks — walking</h3>
+<p><img alt="MotionBricks panel" src="assets/panel-05-motionbricks.png" /></p>
+<p>Walks in a style with no prompt. <strong>Generate Motion</strong> only plans, and the plan <strong>plays right away</strong> from memory; <strong>Bake</strong> writes the keys.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>+ / - / Add Selected</strong></td>
+<td><strong>+</strong> asks for a <strong>SOMA Human</strong> or a <strong>Unitree G1 Robot</strong>; <strong>-</strong> removes or deletes; <strong>Add Selected</strong> adds a picked skeleton. The person has the same Style, Go, Speed, Generate, Bake, Live and Retarget as the robot</td>
+</tr>
+<tr>
+<td><strong>Take list (+ Take / - Take / Show Take)</strong></td>
+<td>Every character has takes, each with its own style, direction or target, speed, seed and length. They run one after the other on one timeline (say frames 1-30, 31-90, 91-135); <strong>Generate Motion</strong> makes all the ticked ones, each starting where the one before ended, and <strong>Bake</strong> writes them into one animation. <strong>Show Take</strong> makes that stretch the playback range</td>
+</tr>
+<tr>
+<td><strong>End on Pose Key</strong> (person)</td>
+<td>The take ends on the next pose key: move, turn and pose the character and key it on the frames it should arrive at (say 50 and 100); the take is made up to there, from the pose it starts on. Keys can be 19 to 59 frames apart at 30 fps. The keys stay, and <strong>Bake</strong> records the frames it made as generated</td>
+</tr>
+<tr>
+<td><strong>Poses to Use (1-4) / Transition Early By</strong> (person)</td>
+<td>More than one pose gives the target a speed instead of a stop; <strong>Transition Early By</strong> lets the next take start on the way to the key, so the character flows through its poses</td>
+</tr>
+<tr>
+<td><strong>Arrive in a Clip Pose</strong> (person)</td>
+<td>The take ends in a pose of a style's clip (<strong>Clip</strong>, <strong>Clip Time</strong>), placed at its <strong>Target</strong> or 2 m ahead; the model picks the length between <strong>Fewest</strong> and <strong>Most</strong> tokens</td>
+</tr>
+<tr>
+<td><strong>With a Body</strong></td>
+<td>Give new characters a simple body mesh</td>
+</tr>
+<tr>
+<td><strong>Style</strong></td>
+<td>Pick from the loaded styles</td>
+</tr>
+<tr>
+<td><strong>Go</strong></td>
+<td><code>In a Direction</code> (keep walking) / <code>To a Target</code> (walk there and stop)</td>
+</tr>
+<tr>
+<td><strong>Target / +</strong></td>
+<td>An object's name or <code>x z</code> (scene units). <strong>+</strong> makes an arrow target — its +Z is the way the character faces on arrival</td>
+</tr>
+<tr>
+<td><strong>Heading (deg) / Speed / Seed</strong></td>
+<td>Direction in degrees / <code>0</code> uses the style's speed / where in the style the stride starts</td>
+</tr>
+<tr>
+<td><strong>Duration / Reduce Foot Skating / Continue</strong></td>
+<td>Length / foot planting / add to the previous plan</td>
+</tr>
+<tr>
+<td><strong>Live</strong></td>
+<td><strong>Steer With</strong>: <code>Ground Cursor</code> (click the floor with <strong>Cursor Tool</strong>, or drag <code>MF_MB_Cursor</code>) / <code>Target Object</code> (each to its own target). <strong>Move Characters Too</strong>: the Share list's characters follow. <strong>Lead</strong>: frames planned ahead. <strong>Esc</strong> stops it</td>
+</tr>
+<tr>
+<td><strong>Cascadeur</strong></td>
+<td>Link state, <strong>Connect/Disconnect</strong>, <strong>Refresh</strong></td>
+</tr>
+<tr>
+<td><strong>Bake / Discard</strong></td>
+<td>Write the plan as keys / throw it away</td>
+</tr>
+<tr>
+<td><strong>Reset All</strong></td>
+<td>Stops a live run, drops any unbaked plan, then clears every MotionBricks character's keys and puts them back at rest along with the characters they were retargeted onto; the timeline returns to its first frame</td>
+</tr>
+<tr>
+<td><strong>Styles</strong></td>
+<td>The list is what the selected character can use (<strong>Use Style</strong>, <strong>Refresh</strong>). The person's 14 styles - idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, and elbow and hand crawling - come with <strong>Install Engines</strong>; <strong>Make Missing</strong> makes any that are missing (or that you deleted) with Kimodo in a few minutes; <strong>Save as Style</strong> adds your own from a baked or generated take (at least 60 frames). Install Engines also fetches the person's model (380 MB, NVIDIA's licence) and ONNX Runtime; it runs on the CPU, in a mayapy of its own</td>
+</tr>
+<tr>
+<td><strong>Robot styles</strong></td>
+<td><strong>Style Name · Speed · Allowed Durations</strong>. <strong>Import FBX / BVH</strong> brings in a clip (its top node shows in <strong>Source</strong>, its joint naming in <strong>Rig Type</strong>) and <strong>Convert to Style</strong> writes an <code>.mbstyle</code> (retargeted onto the MotionBricks skeleton; the engine's verdict on it is shown at once). <strong>Save as Style</strong> saves the selected character's animation (playback range)</td>
+</tr>
+<tr>
+<td><strong>Reload Engine</strong></td>
+<td>Load the engine again</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Maya has no BVH importer, so MotionForge reads BVH itself (rotation orders and frame rate included).</p>
+</blockquote>
+<h3 id="6-6-retarget-onto-your-own-character">6-6. Retarget — onto your own character</h3>
+<p><img alt="Retarget panel" src="assets/panel-06-retarget.png" /></p>
+<ol>
+<li><strong>Source Rig</strong> — empty means the rig the newest take went onto; any MotionForge rig can be picked. A live take still waiting is baked first, and a rig with no keys sends the pose it is in.</li>
+<li><strong>MMD models</strong> work both ways, with <a href="https://github.com/yohawing/maya_mmd_tools">maya_mmd_tools</a> installed. The <strong>MMD</strong> box at the top of this panel has <strong>Import MMD Model (PMX)</strong> and <strong>Import MMD Motion (VMD)</strong>; an imported model appears in this list as <code>MMD: &lt;name&gt;</code>, and its keys are copied like any take. To put a take <em>on</em> an MMD model, set <strong>Rig Type</strong> to <strong>MMD model</strong> (Auto-Detect finds one too). Bones are read by their MMD names, so a model that calls its arm <code>upperarm_L</code> works as well as one that calls it <code>left_arm</code>. Torso and limbs are mapped; finger and twist bones are not yet.</li>
+<li>Select a joint of the receiving character - or its body mesh - and press <strong>Set Selected</strong> (or type a name). <strong>Referenced characters with a namespace</strong> (<code>Hero:Hips</code>) work as they are. A skeleton an importer left split under its body mesh (MetaHuman Builder's <code>MMB_bodyShapeBof4|spine_04</code>) is named by the mesh, and every joint under it is retargeted. When the character carries a second skeleton beside the body one (MetaHuman Builder's head rig, bone names and all), the body skeleton is the one driven and the copy follows it - live and baked - instead of the two being mapped onto one another.</li>
+<li><strong>Rig Type</strong> — usually auto-detect. The two control rigs Maya animators work with are in the list: <strong>HumanIK Control Rig</strong> and <strong>mGear EPIC biped</strong>. The take is keyed onto their controls (the pelvis and legs onto the HumanIK effectors, whose channels are what that solver reads), and the character follows the controls.</li>
+<li><strong>Method</strong> — <code>MotionForge</code> (joint by joint) / <code>HumanIK (Maya)</code> (both defined as HumanIK characters, driven by Maya's HumanIK, then baked).</li>
+<li><strong>Retarget to Character</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auto-Align Rest Pose</strong></td>
+<td>Copes with limbs resting differently</td>
+</tr>
+<tr>
+<td><strong>Auto Scale Motion</strong></td>
+<td>Scales travel by the height ratio</td>
+</tr>
+<tr>
+<td><strong>Match Floor Contact</strong></td>
+<td>Keeps the feet on the floor every frame</td>
+</tr>
+<tr>
+<td><strong>Legs on IK</strong> (checkbox in the Share With Characters box, below)</td>
+<td>Puts each foot where the source's is (from the character's own hip, scaled to its leg) and solves the knee as a two-joint IK — no foot sliding on a different build. It applies to <strong>Retarget to Character</strong> too</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Share With Characters</strong> — one take onto many characters</p>
+<ol>
+<li><strong>+</strong> adds a row for the selected character. Each row: <strong>Source</strong> (empty = active rig) · <strong>Character</strong> · <strong>Rig Type</strong> · <strong>Enabled</strong>.</li>
+<li>With <strong>Fill Characters After Generating</strong> on, rows fill right after every Generate and Bake; <strong>Fill Characters</strong> does it now.</li>
+<li>During a live run (ARDY or MotionBricks) the characters follow as poses; a second skeleton on the same character (a MetaHuman head rig) follows with it.</li>
+</ol>
+<p><strong>Reset All</strong> (in Live Path, Kimodo and MotionBricks) resets these characters along with its rigs: their keys are cut and their own rest pose comes back - <strong>Maya's bind pose</strong>, what Go to Bind Pose puts back, which on a MetaHuman Builder body is the whole pose it was skinned in (the root keeps -90) rather than every rotate channel at zero, which tipped the character over and dropped it through the floor. The rest is read off the skeleton, not off the pose the character is standing in: a live run sets a follower's bones without keying them, so a character it stopped on carries no animation at all, and taking that pose for its rest sent Reset All walking off to wherever the take had got to. A character whose skeleton carries no bind pose - one MotionForge built and never skinned - goes back to the pose it was found in, or, if it was already keyed before MotionForge saw it, to where its take begins. The rows and Target Rig are saved with the scene, so a character filled in an earlier session is put back too.</p>
+<p><strong>SMPL-X body</strong> — when the Target Rig is an SMPL-X/SMPL-H skeleton, <strong>Export SMPL (.smpl)</strong> writes it (pick a Gender; <code>Shape000…</code> blend shapes are saved as the body shape).</p>
+<h3 id="6-7-send-to-cascadeur">6-7. Send to Cascadeur</h3>
+<p><img alt="Send to Cascadeur panel" src="assets/panel-07-send-to-cascadeur.png" /></p>
+<p>See chapter 7.</p>
+<hr />
+<h2 id="7-cascadeur">7. Cascadeur</h2>
+<h3 id="7-1-install-once">7-1. Install (once)</h3>
+<ol>
+<li><strong>Install Cascadeur Plug-in</strong> in the window (or the menu) runs <code>installer\integrations\cascadeur\install_mf_maya.bat</code>. Allow Administrator when asked.</li>
+<li>It copies two Maya-only files (<code>mf_maya_link.py</code>, <code>mf_maya_apply.py</code>) into Cascadeur.</li>
+<li>They share <strong>neither file names nor ports</strong> with the Blender add-on's Cascadeur plug-in; both can be installed and running at once.</li>
+<li>Restart Cascadeur.</li>
+<li>In Cascadeur run <code>Animation Scripts &gt; MotionForge Maya Link</code> (port 9574).</li>
+</ol>
+<p>What goes across is <strong>the selected skeleton</strong> — a MotionForge rig or your own character's joints. With nothing selected, the rig the newest take went onto.</p>
+<h3 id="7-2-sending">7-2. Sending</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Send</strong></td>
+<td><code>Keyframes Only</code> (keys onto the character Cascadeur already has) / <code>Character and Bones</code> (the character itself as FBX)</td>
+</tr>
+<tr>
+<td><strong>With Mesh / With Animation</strong></td>
+<td>Include the body / the animation (off sends the rest pose)</td>
+</tr>
+<tr>
+<td><strong>Unify Skeleton</strong></td>
+<td>When the skinned joints are split across hierarchies or driven by a control rig (constraints, IK, HumanIK), a <strong>one-tree copy</strong> of the skinned joints is built, the motion baked onto it, and that is sent. Your scene is untouched</td>
+</tr>
+<tr>
+<td><strong>Fill Rig Mode</strong> (tick)</td>
+<td>Once the character has landed, fill Cascadeur's Quick Rigging Tool with this rig's joints</td>
+</tr>
+<tr>
+<td><strong>Rig Type</strong> (Keyframes Only)</td>
+<td>The joint naming; the line below says "N bones matched" or why not</td>
+</tr>
+<tr>
+<td><strong>Send Frame Range / Current Frame</strong></td>
+<td>The playback range / this frame</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>How many frames Cascadeur has received</td>
+</tr>
+<tr>
+<td><strong>Fill Rig Mode</strong> (button)</td>
+<td>Fill Rig Mode now, for a character sent earlier</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Order matters</strong>: with no character in Cascadeur, send <code>Character and Bones</code> first, then keys, Live or Receive. The send keeps a copy of how the character landed on the rig, so restarting Cascadeur or Maya does not break reading back.</p>
+</blockquote>
+<h3 id="7-3-live-mirror">7-3. Live mirror</h3>
+<ol>
+<li><strong>Check the Link</strong> tests the link step by step and says where it stops (full report in the Script Editor).</li>
+<li><strong>Mirror</strong> — <code>Follow the Focus</code> (the window you work in sends) / <code>Maya to Cascadeur</code> / <code>Cascadeur to Maya</code>.</li>
+<li><strong>Bones</strong> — <code>Mapped Bones</code> / <code>Whole Skeleton</code>.</li>
+<li><strong>Live: Mirror This Rig</strong> — press again or <strong>Esc</strong> to stop. Playing back keys every frame over there too.</li>
+</ol>
+<h3 id="7-4-receiving-from-cascadeur">7-4. Receiving (From Cascadeur)</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Receive</strong></td>
+<td><code>Animation Only</code> (keys onto the selected skeleton) / <code>Mesh + Animation</code> (Cascadeur writes an FBX, Maya imports it as new objects)</td>
+</tr>
+<tr>
+<td><strong>Whole Take</strong></td>
+<td>Every frame Cascadeur holds; off reads the scene's playback range</td>
+</tr>
+<tr>
+<td><strong>Timing</strong></td>
+<td><code>Match Timing</code> (back at the speed it left — undoes Cascadeur's frame-rate difference) / <code>Fit Scene Range</code> (stretch or squeeze to the range) / <code>One For One</code> (frame for frame)</td>
+</tr>
+<tr>
+<td><strong>Receive from Cascadeur</strong></td>
+<td>Read it</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-good-to-know-in-maya">8. Good to know in Maya</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>What MotionForge does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scene unit is not cm</strong> (m, inch...)</td>
+<td>Works exactly: it computes in cm while it works and puts your unit back</td>
+</tr>
+<tr>
+<td><strong>Undo</strong></td>
+<td>Creating a rig, keying a take, Bake, Retarget and Receive are each <strong>one Ctrl+Z</strong></td>
+</tr>
+<tr>
+<td><strong>Scene frame rate</strong></td>
+<td>An empty scene takes the take's rate (ARDY 20 · Kimodo/MotionBricks 30). A scene with other animation <strong>keeps its rate</strong> and the take is keyed at its true times</td>
+</tr>
+<tr>
+<td><strong>Playback too fast</strong></td>
+<td>"Play every frame" is switched to Real-time</td>
+</tr>
+<tr>
+<td><strong>Generating again on the same rig</strong></td>
+<td>The old take's keys are cleared first</td>
+</tr>
+<tr>
+<td><strong>Turning past 180°</strong></td>
+<td>The Euler filter runs automatically</td>
+</tr>
+<tr>
+<td><strong>Saving and reopening / restarting Maya</strong></td>
+<td>The rigs and every window setting and list come back (<code>motionforgeState</code> node). Renamed joints are found again</td>
+</tr>
+<tr>
+<td><strong>A rig parented under a moved group</strong></td>
+<td>Motion lives in the rig's own space: move or turn the group and the take, waypoints and targets follow</td>
+</tr>
+<tr>
+<td><strong>A skeleton from elsewhere</strong> (joints oriented any which way)</td>
+<td>Add Selected remembers each joint's rest orientation, so takes key onto it exactly</td>
+</tr>
+<tr>
+<td><strong>A node already has a rig's name</strong></td>
+<td>The rig gets non-clashing names</td>
+</tr>
+<tr>
+<td><strong>Temp files</strong></td>
+<td>Generation and send files older than 7 days are removed when the plug-in loads (Use Take works within that)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-reload-update-without-restarting-maya">9. Reload — update without restarting Maya</h2>
+<p><code>MotionForge &gt; Reload MotionForge</code> (shelf <code>Reload</code>)
+New code goes live at once. A running Live, MotionBricks live run or Cascadeur mirror is stopped first, and ARDY disconnects.
+Rigs, takes, waypoints, pose keys, live takes, Kimodo/MotionBricks characters, the Share list and the settings stay. Reopen the window afterwards.</p>
+<hr />
+<h2 id="10-how-it-differs-from-blender">10. How it differs from Blender</h2>
+<p>Nothing is left unported; every control in the window works. Some parts are done the Maya way:</p>
+<table>
+<thead>
+<tr>
+<th>Blender</th>
+<th>Maya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3D cursor (Shift+right-click)</td>
+<td><code>MF_MB_Cursor</code> locator + <strong>Cursor Tool</strong> (click the floor)</td>
+</tr>
+<tr>
+<td>Driving Rigify's leg IK (Legs on IK)</td>
+<td>A two-joint IK solved on the character's own legs; plus a <strong>HumanIK retarget</strong> method</td>
+</tr>
+<tr>
+<td>Merging Rigify's three skeletons (Unify Skeleton)</td>
+<td>A one-tree copy of the skinned joints with the control rig's motion baked</td>
+</tr>
+<tr>
+<td>Pose key IK bones</td>
+<td>Maya ikHandles with pole-vector locators</td>
+</tr>
+<tr>
+<td>Path curve (Bezier)</td>
+<td>NURBS curve</td>
+</tr>
+<tr>
+<td>BVH import (built into Blender)</td>
+<td>MotionForge's own BVH reader</td>
+</tr>
+<tr>
+<td>Rigify control rig</td>
+<td><strong>mGear's EPIC biped</strong> (when mGear is installed) or the <strong>HumanIK Control Rig</strong></td>
+</tr>
+<tr>
+<td>Engine install (manifests ship in the add-on)</td>
+<td>This repository ships no download manifests; point the Engine Folder at the one the Blender add-on installed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-troubleshooting">11. Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Message / symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ARDY is not installed under the Engine Folder</code></td>
+<td>Set the folder with <code>Set Engine Folder...</code> and check <code>Engine Status</code></td>
+</tr>
+<tr>
+<td><code>Create a rig first</code> / "no rig" messages</td>
+<td>Make a rig with <code>Create Rig</code> (or the panel's <code>+</code>)</td>
+</tr>
+<tr>
+<td><code>The take has N joints but the rig has M</code></td>
+<td>The rig was built for another model — press <code>Create Rig</code> again</td>
+</tr>
+<tr>
+<td>Live says <code>engine off - press Connect ARDY first</code></td>
+<td>Press <code>Connect ARDY</code> first</td>
+</tr>
+<tr>
+<td><code>Cascadeur is not listening on ...</code></td>
+<td>Run <code>MotionForge Maya Link</code> in Cascadeur</td>
+</tr>
+<tr>
+<td><code>This Cascadeur's plugin has no ...</code> (404)</td>
+<td>The Cascadeur-side files are older — run <code>install_mf_maya.bat</code> again and restart Cascadeur</td>
+</tr>
+<tr>
+<td><code>stale</code> after connecting (different link version in Cascadeur)</td>
+<td>Run <code>install_mf_maya.bat</code> again and restart Cascadeur</td>
+</tr>
+<tr>
+<td>Generating takes long</td>
+<td>The window generates in the background; the first prompt is slow. Watch the status line and the Script Editor (the menu's one-click entries wait until done)</td>
+</tr>
+<tr>
+<td>The window is empty after Reload</td>
+<td>Reopen it with <code>Open MotionForge Window</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-licence">12. Licence</h2>
+<p>MotionForge for Maya is sold under the <strong>Chamiseul License</strong>, one licence per
+purchaser. Copying, modifying, redistributing or reselling the plug-in is not
+permitted; use the files exactly as delivered. The full text is <code>LICENSE.txt</code> in
+the folder you installed from.</p>
+<p>Third-party components (NVIDIA models and sources, ggml) keep their own
+licences, unmodified: see <code>licenses\</code> and
+<code>scripts\motionforge\core\installer\*\licenses\</code>. The Blender add-on's licence
+does not apply to this product.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="KO_index/" class="btn btn-neutral float-right" title="한국어 가이드">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="KO_index/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
