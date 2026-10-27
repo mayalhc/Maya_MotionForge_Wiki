@@ -9,6 +9,43 @@ Blender 애드온 MotionForge v0.5.0을 Maya 2027로 이식했습니다. 모든 
 
 ---
 
+## 0.2.0 새 기능
+
+> **0.1.0에서 올라오는 경우:** 0.2.0을 설치한 뒤 MotionForge 창에서 **Install Engines**를 한 번 눌러 주세요. 엔진 폴더의 MotionBricks 런타임을 새 것으로 바꾸고, 사람(SOMA Human)이 쓰는 모델과 스타일도 받습니다. 옆의 **Check for Updates**는 내려받지 않고 무엇이 새로운지 알려 줍니다.
+
+### 새로 추가
+
+**MotionBricks에 사람이 들어옴**
+- MotionBricks 패널의 **+**를 누르면 **SOMA Human**과 **Unitree G1 Robot** 중에서 고릅니다. 사람도 로봇과 같은 Style, Go, Speed, **Generate Motion**, **Bake**, **Live**, Retarget을 씁니다.
+- 사람의 스타일 14개(idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, 팔꿈치·손 기기)는 **Install Engines**가 함께 설치합니다. 빠진 것이 있으면 Styles 상자의 **Make Missing**이 Kimodo로 만들고, **Save as Style**은 구운(Bake) 또는 생성한 테이크를 내 스타일로 저장합니다.
+- **Install Engines**가 사람용 모델(380 MB)을 NVIDIA 라이선스와 함께 받습니다. 별도의 mayapy에서 CPU로 돌기 때문에 GPU가 필요 없습니다.
+
+**사람과 로봇 모두 테이크**
+- 캐릭터마다 테이크 목록(**+ Take / - Take / Show Take**)이 있습니다. 테이크는 자기 스타일, 방향 또는 타겟, 속도, 시드, 길이를 갖고 씬과 함께 저장됩니다.
+- 테이크는 하나의 타임라인에 차례로 이어지고(예: 1-30, 31-90, 91-135프레임), **Generate Motion**은 체크된 테이크를 앞 테이크가 끝난 자리에서 이어서 만듭니다. **Bake**는 하나의 애니메이션으로 기록합니다.
+
+**포즈 투 포즈**
+- 사람의 테이크에서 **End on Pose Key**를 켭니다. 캐릭터를 옮기고 돌리고 포즈를 잡아 도착할 프레임(예: 50, 100)에 키를 넣으면, 각 테이크는 자기 키까지 시작한 포즈에서 만들어집니다. 키 간격은 30fps 기준 19~59프레임입니다.
+- **Poses to Use**(1~4)와 **Transition Early By**로 멈추지 않고 여러 포즈를 지나며 움직입니다. **Arrive in a Clip Pose**는 스타일 클립의 한 포즈에서 끝나는 테이크를 만듭니다.
+
+**MMD 캐릭터 양방향**
+- [maya_mmd_tools](https://github.com/yohawing/maya_mmd_tools)를 설치하면 Retarget 패널에 **MMD** 상자가 생깁니다: **Import MMD Model (PMX)**, **Import MMD Motion (VMD)**.
+- 불러온 모델은 **소스**(목록에 `MMD: <이름>`, VMD 키를 다른 테이크처럼 옮김)로도, **타겟**(**Rig Type**을 **MMD model**로, Auto-Detect로도 찾음)으로도 쓸 수 있습니다. 본은 MMD 이름으로 읽어서 `upperarm_L`이든 `left_arm`이든 똑같이 동작합니다.
+- 굽기 동안 다리를 FK로 바꿔서 다리 IK가 다리를 붙잡지 않습니다. 첫 프레임부터 무릎이 키대로 서 있고, 스킨이 묶인 D본 다리가 함께 움직이며, IK 컨트롤러도 발을 따라갑니다. **Reset All**은 IK를 다시 켭니다. 팔·팔꿈치·손·목 솔버는 건드리지 않습니다.
+
+### 바뀐 점
+
+- **Install Engines**가 업데이트도 합니다. 공개된 런타임과 다른 파일은 교체되어, 예전 설치에도 새 Kimodo·ARDY·MotionBricks 런타임이 반영됩니다. 직접 만들거나 고친 스타일은 덮어쓰지 않습니다. 사람 모델과 ONNX Runtime은 Blender 애드온 설치와 공유되므로 엔진 폴더 하나로 둘 다 씁니다.
+- 설치 안내에 폴더 구성을 정확히 적었습니다: 압축을 푼 `Maya_MotionForge-<버전>` 폴더 이름을 `MotionForge`로 바꿔서, `MAYA_MODULE_PATH`에 넣은 폴더 바로 안에 `MotionForge.mod`가 있게 합니다.
+
+### 고친 점
+
+- **MMD 타겟의 다리.** 다리 IK가 다리를 붙잡고, 기본 자세에서도 무릎을 굽혀 첫 프레임부터 접혀 있었으며, 스킨이 묶인 D본 다리가 멈춘 솔버를 읽어 FK가 움직여도 몸이 뻣뻣했습니다.
+- 그룹으로 등록한 MMD 모델(Set Selected가 만드는 것)을 MMD 모델로 인식합니다.
+- Live Path 목록의 테이크마다 길이가 따로 있습니다.
+
+---
+
 ## 1. 준비물
 
 | 항목 | 내용 |

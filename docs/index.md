@@ -9,6 +9,43 @@ It is a port of the MotionForge Blender add-on v0.5.0 to Maya 2027. Every engine
 
 ---
 
+## What's new in 0.2.0
+
+> **Updating from 0.1.0:** after installing 0.2.0, press **Install Engines** in the MotionForge window once. It updates the MotionBricks runtime in your Engine Folder, and the person (SOMA Human) needs it for its model and styles. **Check for Updates** next to it says what is newer without downloading it.
+
+### New
+
+**A person joins MotionBricks**
+- The **+** in the MotionBricks panel asks for a **SOMA Human** or the **Unitree G1 Robot**. The person has the same Style, Go, Speed, **Generate Motion**, **Bake**, **Live** and Retarget as the robot.
+- A person's 14 styles - idle, walk, slow walk, jog, run, injured, stealth, scared, zombie, happy, boxing, gun, and elbow and hand crawling - come with **Install Engines**. **Make Missing** in the Styles box makes any that are missing with Kimodo, and **Save as Style** adds your own from a baked or generated take.
+- **Install Engines** also fetches the person's model (380 MB) with NVIDIA's licence. It runs on the CPU, in a mayapy of its own - no GPU needed.
+
+**Takes, for the person and the robot**
+- Every character has a list of takes (**+ Take / - Take / Show Take**). A take has its own style, direction or target, speed, seed and length, and they are saved with the scene.
+- The takes run one after the other on one timeline - for example frames 1-30, 31-90, 91-135 - and **Generate Motion** makes all the ticked ones, each starting where the one before ended. **Bake** writes them into one animation.
+
+**Pose to pose**
+- Tick **End on Pose Key** on a take of a person. Move, turn and pose the character and key it on the frames it should arrive at - say 50 and 100 - and each take is made up to its key, from the pose it starts on. Keys can be 19 to 59 frames apart at 30 fps.
+- **Poses to Use** (1 to 4) and **Transition Early By** let the character flow through its poses without halting. **Arrive in a Clip Pose** makes a take end in a pose of a style's clip.
+
+**MMD characters, both ways**
+- With [maya_mmd_tools](https://github.com/yohawing/maya_mmd_tools) installed, the Retarget panel has an **MMD** box: **Import MMD Model (PMX)** and **Import MMD Motion (VMD)**.
+- An imported model is a **source** (`MMD: <name>` in the list; its VMD keys are copied like any take) and a **target** (set **Rig Type** to **MMD model**; Auto-Detect finds one too). Bones are read by their MMD names, so `upperarm_L` works as well as `left_arm`.
+- The legs are switched to FK for the bake, so the leg IK no longer holds them still: the knees stand as keyed from the first frame, the skin's D-bone legs follow, and the IK controllers ride along with the feet. **Reset All** switches the IK back on. The arm, elbow, hand and neck solvers are left alone.
+
+### Changed
+
+- **Install Engines** now updates too: a runtime file that differs from the published one is replaced, so a newer Kimodo, ARDY or MotionBricks runtime reaches an older install. A style you made or edited is never overwritten. The person's model and ONNX Runtime are shared with the Blender add-on's install, so one Engine Folder serves both.
+- Installation now says exactly how to lay out the folder: rename the unzipped `Maya_MotionForge-<version>` folder to `MotionForge`, so `MotionForge.mod` sits directly inside the folder on `MAYA_MODULE_PATH`.
+
+### Fixed
+
+- **MMD target legs.** The leg IK used to hold the legs still, bent the knees in the rest pose so the first frame was already folded, and left the skin's D-bone legs reading the idle solver - the body stood stiff while the FK bones moved.
+- An MMD model registered as a group (what Set Selected makes) is recognised as an MMD model.
+- Each take in the Live Path list has its own length.
+
+---
+
 ## 1. What you need
 
 | Item | Details |
